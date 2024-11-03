@@ -1,0 +1,122 @@
+/* Navbar.css */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f0f0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #2e4549;
+  position: relative;
+  transition: background-color 0.3s ease;
+  border-bottom: 2px solid #555;
+  /* Add a bottom border */
+}
+
+.navbar:hover {
+  background-color: #444;
+}
+
+.navbar-title {
+  font-size: 1.8rem;
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+  font-weight: bold;
+  letter-spacing: 2px;
+  /* Add letter spacing for a modern look */
+}
+
+.navbar-title:hover {
+  color: #ff6347;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.navbar-links li {
+  position: relative;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s, transform 0.3s;
+  font-weight: 500;
+  padding: 10px 15px;
+  /* Add padding for better hover effect */
+  border-radius: 5px;
+  /* Add rounded corners */
+}
+
+.navbar-links a:hover {
+  color: #ff6347;
+  transform: translateY(-2px);
+  background-color: rgba(255, 255, 255, 0.1);
+  /* Add subtle background on hover */
+}
+
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 4px 0;
+  transition: 0.3s;
+}
+
+.open .bar:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.open .bar:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+@media (max-width: 768px) {
+  .navbar-links {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: #333;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(-20px);
+  }
+
+  .navbar-links.active {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .navbar-toggle {
+    display: flex;
+  }
+}
